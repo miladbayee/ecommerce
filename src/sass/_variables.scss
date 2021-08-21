@@ -1,0 +1,37 @@
+$white-color: #fff;
+$black-color: rgb(51, 51, 51);
+$main-bg: #fff;
+$main-color: #4267b2;
+$hover-main-color: #4267b2c2;
+
+$text-main-color: $black-color;
+$text-second-color: #8d8d8d;
+$text-white: $white-color;
+
+$btn-main-bg: $main-color;
+$btn-main-color: $white-color;
+
+$header-height: 140px;
+$header-tablet-height: 60px;
+$header-mobile-height: 60px;
+$header-shrink-height: 70px;
+
+$box-shadow: rgba(164, 167, 170, 0.2) 0 8px 24px;
+
+$second-font-family:"Righteous", cursive;
+
+$colors: (
+  "blue": #4267b2,
+  "orange": #fbb96b,
+  "pink": #fe7e73,
+  "green":#3ebb00,
+  "red":rgb(228, 0, 0),
+  "white": $white-color,
+  "black": $black-color,
+  "main": $main-color,
+);
+
+$numbers :(1,2,3,4,5,6,7,8,9,10,11,12);
+
+$mobile-width: 599px;
+$tablet-width: 1023px;

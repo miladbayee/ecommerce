@@ -1,0 +1,41 @@
+.btn {
+  @include flex(center, center);
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  color: $btn-main-color;
+  cursor: pointer;
+  position: relative;
+
+  &__text,
+  &__icon {
+    transition: transform ease 0.5s;
+  }
+
+  &__text {
+    text-transform: capitalize;
+    padding: 0.8rem 2.4rem;
+  }
+
+  &__icon {
+    @include flex(center, center);
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 0;
+    width: 0;
+  }
+
+  &:hover &__icon {
+    height: 100%;
+    width: 100%;
+
+  }
+
+  &:hover &__text {
+    transform: translateX(100%);
+  }
+}
+
+

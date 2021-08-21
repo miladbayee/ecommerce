@@ -1,0 +1,23 @@
+.section {
+  margin: 5rem 0;
+
+  &__title {
+    
+      font-size: 2.2rem;
+      text-align: center;
+      text-transform: capitalize;
+      font-weight: 700;
+      color:$black-color;
+      @include tablet{
+        font-size: 1.8rem;
+      }
+      @include mobile{
+        font-size: 1.5rem;
+      }
+    
+  }
+
+  &__body{
+    margin-top: 1.2rem;
+  }
+}

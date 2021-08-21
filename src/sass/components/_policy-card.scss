@@ -1,0 +1,74 @@
+.policy-card {
+  @include flex(center, center);
+  padding: 20px;
+  box-shadow: $box-shadow;
+  border-radius: 8px;
+  transition: transform ease 0.5s;
+
+  &:hover {
+    transform: translateY(-20px);
+  }
+
+  &:hover &__icon {
+    animation: icon-animate ease 3s infinite;
+  }
+
+  &__icon {
+    @include flex(center, flex-start);
+    flex: 1;
+    font-size: 3.5rem;
+    color: $main-color;
+
+    @include tablet{
+      font-size: 3.4rem
+    }
+
+    @include mobile{
+      font-size: 3rem
+    }
+  }
+
+  &__content {
+    @include flex(flex-start, center);
+    flex-direction: column;
+    flex: 2;
+
+    &__title {
+      font-size: 1.5rem;
+      font-weight: 500;
+      text-transform: capitalize;
+      color: $main-color;
+      margin-bottom: 1.2rem;
+
+      @include tablet {
+        font-size: 1.35 rem;
+      }
+      @include mobile {
+        font-size: 1.1 rem;
+      }
+    }
+
+    &__text {
+      color: $text-second-color;
+    }
+  }
+}
+
+@keyframes icon-animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(3deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-3deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+

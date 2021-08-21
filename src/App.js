@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { useCallback, useEffect, useState } from "react"
+import Layout from "./Layout/Layout"
 
-function App() {
+import useDispatchContex from './hooks/useDispatchContext'
+import * as api from './services/productHttpService'
+import { getAllProductsFailedAction, getAllProductsSuccessAction } from './context/stroeAction'
+
+const App = () => {
+  const [isCancelled, setIsCancelled] = useState(false);
+
+  const { dispatch } = useDispatchContex()
+
+  const getAllProducts = useCallback(async () => {
+    try {
+      const { data } = await api.get('/products')
+      if (!isCancelled) {
+        return dispatch(getAllProductsSuccessAction(data))
+      }
+    } catch {
+      if (!isCancelled) {
+        return dispatch(getAllProductsFailedAction())
+      }
+    }
+
+
+  }, [dispatch, isCancelled])
+  useEffect(() => {
+    getAllProducts();
+
+    return () => setIsCancelled(true)
+
+  }, [getAllProducts])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Layout />
+    </>
+  )
 }
 
-export default App;
+export default App

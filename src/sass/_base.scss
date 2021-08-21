@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: $black-color;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+  cursor: pointer;
+}
+
+a:hover{
+  color: $main-color;
+}
+
+@each $color, $val in $colors {
+  .color-#{$color} {
+    color: $val;
+  }
+
+  .bg-#{$color} {
+    background-color: $val;
+  }
+}
+
+@each $var in $numbers {
+  .grid-col-#{$var} {
+    grid-template-columns: repeat($var, 1fr);
+  }
+}
+
+@each $var in $numbers {
+  .grid-col-md-#{$var} {
+    @include tablet {
+      grid-template-columns: repeat($var, 1fr);
+    }
+  }
+}
+
+@each $var in $numbers {
+  .grid-col-sm-#{$var} {
+    @include mobile {
+      grid-template-columns: repeat($var, 1fr);
+    }
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1620px;
+  padding: 0 60px;
+  margin: auto;
+
+  @include tablet {
+    padding: 0 30px;
+  }
+
+  @include mobile {
+    padding: 0 30px;
+  }
+}
+
+.main {
+  margin-top: calc(#{$header-height} + 6rem);
+  margin-bottom: 3rem;
+
+  @include tablet {
+    min-height: 100vh;
+    margin-top: calc(#{$header-tablet-height} + 2rem);
+    margin-bottom: 3rem;
+  }
+
+  @include mobile {
+    min-height: 100vh;
+    margin-top: calc(#{$header-mobile-height} + 1rem);
+    margin-bottom: 3rem;
+  }
+}
+
+.grid {
+  display: grid;
+}
+
+// .button{
+//   outline: none;
+//   padding: 10px 20px;
+//   border: none;
+//   border-radius: 6px;
+//   color:$white-color;
+//   font-size: 1.1rem;
+//   text-transform: capitalize;
+//   cursor: pointer;
+// }

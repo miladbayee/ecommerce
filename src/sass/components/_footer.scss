@@ -1,0 +1,73 @@
+.footer {
+  box-shadow: $box-shadow;
+  padding: 40px 0;
+
+  .container > div {
+    @include tablet {
+      @include flex(center, center);
+      flex-direction: column;
+    }
+  }
+  &__social {
+    
+    &__icons {
+      &__item {
+        font-size: 1.8rem;
+      }
+
+      &__item ~ &__item {
+        margin-left: 12px;
+      }
+
+      @include flex(center, flex-start);
+    }
+
+    @include tablet {
+        @include flex(center, center);
+        flex-direction: column;
+      }
+  }
+
+  &__title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-bottom: 0.85rem;
+  }
+
+  &__menu {
+    &__item {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 1.1rem;
+      text-transform: capitalize;
+    }
+
+    @include tablet {
+      margin: 1.5rem 0;
+      @include flex(center, center);
+      flex-direction: column;
+    }
+  }
+
+  &__logo {
+    &__img {
+      width: 100%;
+      margin-bottom: 1.2rem;
+      @include flex(center, center);
+      img {
+        width: 150px;
+        height: auto;
+      }
+    }
+    &__content {
+      color: $text-second-color;
+      line-height: 22px;
+    }
+
+    @include tablet {
+      @include flex(center, center);
+      flex-direction: column;
+    }
+  }
+}

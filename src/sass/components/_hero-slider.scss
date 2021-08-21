@@ -1,0 +1,166 @@
+.hero-slider {
+  height: 100vh;
+  max-height: 300px;
+  margin-bottom: 60px;
+  position: relative;
+
+  @include tablet{
+    max-height: 275px;
+    margin-bottom: 24rem;
+  }
+  @include mobile{
+    max-height: 300px;
+    margin-bottom: 28rem;
+  }
+
+  &__item {
+    @include flex(center, space-between);
+
+    @include tablet {
+      flex-direction: column;
+      height: 100vh;
+      max-height: 275px;
+      margin-bottom: 60px;
+    }
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &__info {
+      flex: 2.5;
+
+      @include tablet {
+        flex: 1;
+        @include flex(center, center);
+        flex-direction: column;
+        order: 2;
+      }
+
+      &__title,
+      &__description {
+        margin-bottom: 2rem;
+        @include tablet {
+          margin-bottom: 1rem;
+        }
+      }
+
+      &__title {
+        font-size: 2.7rem;
+        font-family: $second-font-family;
+        @include tablet{
+          font-size: 2rem;
+        }
+        @include mobile{
+          font-size: 1.8rem;
+          text-align: center;
+        }
+      }
+
+      &__description {
+        color: $text-second-color;
+        font-size: 1.2rem;
+        line-height: 34px;
+        width: 70%;
+        overflow: hidden;
+        @include tablet{
+          text-align: center;
+        }
+        @include mobile{
+          font-size: 1rem;
+        }
+      }
+    }
+
+    &__img {
+      height:450px;
+      flex: 1;
+      flex-grow: 1;
+      position: relative;
+
+      img {
+        height: 100%;
+        object-fit: cover;
+        transform: scale(0) rotate(50deg);
+        transition: transform 0.3s cubic-bezier(0.175, 0.9, .4, 1.2);
+      }
+
+      .shape {
+        $size: 300px;
+        width: $size;
+        height: $size;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        z-index: -1;
+        transform: translate(0, -50%);
+        border-radius: 37% 63% 64% 36% / 48% 47% 53% 52%;
+        transition: transform ease-in-out 5s;
+        animation: shape-animat 5s infinite;
+
+        @include tablet{
+          $size: 300px;
+        width: $size;
+        height: $size;
+        }
+
+        @include mobile{
+          $size: 250px;
+        width: $size;
+        height: $size;
+        }
+      }
+
+      @include tablet {
+        flex: 1;
+        flex-grow: 1;
+        height: 400px;
+        order: 1;
+      }
+    }
+
+    &.active &__img {
+      img {
+        transform: scale(1) rotate(0);
+      }
+    }
+  }
+
+  &__controler {
+    @include flex(center, center);
+    &__perview,
+    &__next {
+      font-size: 1.3rem;
+      color: $black-color;
+
+      :hover {
+        color: $main-color;
+      }
+    }
+
+    &__counter {
+      font-size: 1.1rem;
+      margin: 0 1rem;
+      font-family: $second-font-family;
+      color: $black-color;
+      padding: 0 20px;
+    }
+  }
+}
+
+@keyframes shape-animat {
+  0% {
+    border-radius: 37% 63% 64% 36% / 48% 47% 53% 52%;
+  }
+  50% {
+    border-radius: 50% 50% 54% 46% / 48% 33% 67% 52%;
+  }
+  100% {
+    border-radius: 37% 63% 64% 36% / 48% 47% 53% 52%;
+  }
+}
