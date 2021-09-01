@@ -15,7 +15,6 @@ const storeReducer = (state, action) => {
             }
         case 'products/addProductToCart':
             const productId = state.cart.productId
-
             let newProductId = []
 
             if (productId.length === 0) {
@@ -23,9 +22,8 @@ const storeReducer = (state, action) => {
             }
             else {
                 newProductId = [...productId]
-                const product = productId.filter(item => item === action.payload.id)
-                console.log(product)
-                if (product.length===0) {
+                const product = newProductId.find(item => item === action.payload.id)
+                if (!product) {
                     newProductId.push(action.payload.id)
                 }
             }
