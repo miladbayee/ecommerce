@@ -24,6 +24,7 @@ const App = () => {
 
 
   }, [dispatch, isCancelled])
+  
   useEffect(() => {
     getAllProducts();
 

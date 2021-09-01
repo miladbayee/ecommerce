@@ -30,7 +30,7 @@
 
   &__logo {
     @include flex(center, center);
-    
+
     a {
       height: 70px;
       img {
@@ -40,7 +40,7 @@
       }
     }
 
-    @include tablet{
+    @include tablet {
       a {
         height: 40px;
         img {
@@ -130,8 +130,8 @@
           padding-top: 30px;
           transform: translateX(-100%);
           transition: transform ease-in-out 0.5s;
-          
-          &.active{
+
+          &.active {
             transform: translateX(0);
           }
         }
@@ -145,6 +145,27 @@
     &__right {
       &__item {
         font-size: 1.5rem;
+
+        &__bag {
+          position: relative;
+          span {
+            position: absolute;
+            top:50%;
+            left:12px;
+            width: 16px;
+            height: 16px;
+            background-color: red;
+            font-size: 10px;
+            text-align: center;
+            border-radius: 50%;
+            line-height: 160%;
+            font-weight: 500;
+            color: $white-color;
+          }
+          // &__counter {
+
+          // }
+        }
         @include tablet {
           margin-left: auto;
           font-size: 1.35rem;

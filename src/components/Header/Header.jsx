@@ -8,6 +8,8 @@ import {
   RiMenuFoldLine,
 } from "react-icons/ri";
 
+import useStateContext from "../../hooks/useStateContext";
+
 const navMenus = [
   {
     id: "home",
@@ -37,6 +39,10 @@ const Header = () => {
 
   const headerRef = useRef(null);
   const tabletSizeMenuRef = useRef(null);
+
+  const { state } = useStateContext()
+
+  const cartItemsNumber = state.cart.productId.length;
 
   const handleToggleClick = () => {
     tabletSizeMenuRef.current.classList.toggle("active");
@@ -112,8 +118,9 @@ const Header = () => {
               <div className="header__menu__item header__menu__right__item">
                 <RiUser3Line />
               </div>
-              <div className="header__menu__item header__menu__right__item">
+              <div className="header__menu__item header__menu__right__item header__menu__right__item__bag">
                 <RiShoppingBag3Line />
+                {cartItemsNumber>0 && <span>{cartItemsNumber}</span>}
               </div>
             </div>
           </div>

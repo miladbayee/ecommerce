@@ -1,6 +1,10 @@
 const initialState = {
     status:'fetching',
-    products: []
+    products: [],
+    cart:{
+        productId:[],
+        productsItems:{}
+    }
 }
 
 

@@ -11,3 +11,12 @@ export const getAllProductsFailedAction = () => {
         payload: []
     }
 }
+
+export const addProductToCartdAction = (id) => {
+    return {
+        type: 'products/addProductToCart',
+        payload: {
+            id
+        }
+    }
+}
