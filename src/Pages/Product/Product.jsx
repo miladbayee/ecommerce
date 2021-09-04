@@ -6,7 +6,7 @@ import Button from "../../components/Button";
 import Grid from "../../components/Grid";
 import useStateContext from "../../hooks/useStateContext";
 import useDispatchContext from "../../hooks/useDispatchContext";
-import { addProductToCartdAction } from "../../context/stroeAction";
+import { addProductItemToCartdAction } from "../../context/stroeAction";
 
 const Product = () => {
   const { slug } = useParams();
@@ -15,7 +15,7 @@ const Product = () => {
   const { dispatch } = useDispatchContext();
 
   const addToCartHandlerClick = (id) => {
-    dispatch(addProductToCartdAction(id));
+    dispatch(addProductItemToCartdAction(id));
   };
 
   const product =

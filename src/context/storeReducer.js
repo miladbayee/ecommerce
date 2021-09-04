@@ -13,7 +13,7 @@ const storeReducer = (state, action) => {
                 status: 'fail',
                 products: action.payload
             }
-        case 'products/addProductToCart':
+        case 'products/addProductItemToCart':
             const productId = state.cart.productId
             let newProductId = []
 
@@ -31,9 +31,13 @@ const storeReducer = (state, action) => {
             return {
                 ...state,
                 cart: {
-                    ...state.card,
+                    ...state.cart,
                     productId: newProductId
                 }
+            }
+        case 'products/addProductToCart':
+            return {
+                ...state,
             }
 
         default:

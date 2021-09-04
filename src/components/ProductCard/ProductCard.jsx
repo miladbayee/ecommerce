@@ -1,6 +1,6 @@
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { Link } from "react-router-dom";
-import { addProductToCartdAction } from "../../context/stroeAction";
+import { addProductItemToCartdAction } from "../../context/stroeAction";
 import useDispatchContext from "../../hooks/useDispatchContext";
 import Button from "../Button";
 
@@ -10,7 +10,7 @@ const ProductCard = ({ ...props }) => {
   const { dispatch } = useDispatchContext();
 
   const addToCartHandlerClick = (id) => {
-    dispatch(addProductToCartdAction(id));
+    dispatch(addProductItemToCartdAction(id));
   };
   return (
     <div className="product-card">

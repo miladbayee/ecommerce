@@ -12,9 +12,9 @@ export const getAllProductsFailedAction = () => {
     }
 }
 
-export const addProductToCartdAction = (id) => {
+export const addProductItemToCartdAction = (id) => {
     return {
-        type: 'products/addProductToCart',
+        type: 'products/addProductItemToCart',
         payload: {
             id
         }
