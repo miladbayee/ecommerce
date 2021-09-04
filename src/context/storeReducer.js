@@ -14,7 +14,7 @@ const storeReducer = (state, action) => {
                 products: action.payload
             }
         case 'products/addProductItemToCart':
-            const productId = state.cart.productId
+            const { productId } = state.cart
             let newProductId = []
 
             if (productId.length === 0) {
@@ -36,12 +36,21 @@ const storeReducer = (state, action) => {
                 }
             }
         case 'products/addProductListToCart':
-            const { id, title, price, image } = action.payload
+            const { id, title, price, image, counter } = action.payload
+            let newProductList = {};
+            const { productsList } = state.cart
+            if (!productsList[id]) {
+                newProductList = { ...state.cart.productsList, [id]: { id, title, price, image, counter } }
+            }
+            if (productsList[id]) {
+                newProductList = { ...state.cart.productsList, [id]: { ...state.cart.productsList[id], counter: productsList[id].counter + 1 } }
+            }
+
             return {
                 ...state,
                 cart: {
                     ...state.cart,
-                    productsList: { ...state.cart.productsList, [id]: { id, title, price, image } }
+                    productsList: newProductList
                 }
             }
 
