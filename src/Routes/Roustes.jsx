@@ -8,8 +8,8 @@ const Roustes = () => {
     return (
         <Switch>
             <Route path='/' exact component={Home} />
-            <Route path='/catalog' component={Catalog} />
-            <Route path='/catalog/:slug' component={Product} />
+            <Route path='/catalog' exact component={Catalog} />
+            <Route path='/catalog/:slug'  component={Product} />
             <Route path='/card' component={Card} />
         </Switch>
     )

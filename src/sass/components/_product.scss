@@ -1,0 +1,46 @@
+.product {
+  &__image {
+    @include flex(center, center);
+    width: 100%;
+    &__container {
+      width: 310px;
+      height: auto;
+      img {
+        width: inherit;
+        height: inherit;
+      }
+    }
+  }
+
+  &__content {
+    h1 {
+      margin-bottom: 1rem;
+      line-height: 3.5rem;
+    }
+
+    p {
+      line-height: 2rem;
+    }
+
+    &__pricing {
+      @include flex(center, space-between);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+
+      &__rating {
+        @include flex(center, center);
+        flex-direction: row;
+        font-size: 1.2rem;
+
+        &__rate,&__count{
+          @include flex(center, center);
+          margin-left: 1.5rem;
+          span{
+            margin-left: .5rem;
+            color:$text-second-color
+          };
+        }
+      }
+    }
+  }
+}
