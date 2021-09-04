@@ -20,3 +20,16 @@ export const addProductItemToCartdAction = (id) => {
         }
     }
 }
+
+export const addProductListToCartdAction = (id, title,price,image) => {
+    return {
+        type: 'products/addProductListToCart',
+        payload: {
+            id,
+            title,
+            price,
+            image,
+            counter:1
+        }
+    }
+}

@@ -35,9 +35,14 @@ const storeReducer = (state, action) => {
                     productId: newProductId
                 }
             }
-        case 'products/addProductToCart':
+        case 'products/addProductListToCart':
+            const { id, title, price, image } = action.payload
             return {
                 ...state,
+                cart: {
+                    ...state.cart,
+                    productsList: { ...state.cart.productsList, [id]: { id, title, price, image } }
+                }
             }
 
         default:

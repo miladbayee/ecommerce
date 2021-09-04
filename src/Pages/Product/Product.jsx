@@ -6,7 +6,10 @@ import Button from "../../components/Button";
 import Grid from "../../components/Grid";
 import useStateContext from "../../hooks/useStateContext";
 import useDispatchContext from "../../hooks/useDispatchContext";
-import { addProductItemToCartdAction } from "../../context/stroeAction";
+import {
+  addProductItemToCartdAction,
+  addProductListToCartdAction,
+} from "../../context/stroeAction";
 
 const Product = () => {
   const { slug } = useParams();
@@ -14,8 +17,9 @@ const Product = () => {
 
   const { dispatch } = useDispatchContext();
 
-  const addToCartHandlerClick = (id) => {
+  const addToCartHandlerClick = (id,title,price,image) => {
     dispatch(addProductItemToCartdAction(id));
+    dispatch(addProductListToCartdAction(id,title,price,image));
   };
 
   const product =
@@ -49,7 +53,14 @@ const Product = () => {
             </div>
           </div>
           <Button
-            onClick={() => addToCartHandlerClick(product.id)}
+            onClick={() =>
+              addToCartHandlerClick(
+                product.id,
+                product.title,
+                product.price,
+                product.image,
+              )
+            }
             animate={true}
             icon={<HiOutlineShoppingCart />}
           >

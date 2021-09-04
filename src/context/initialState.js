@@ -3,7 +3,8 @@ const initialState = {
     products: [],
     cart:{
         productId:[],
-        productsItems:{}
+        productsList:{
+        }
     }
 }
 
