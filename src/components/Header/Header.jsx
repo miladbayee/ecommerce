@@ -40,7 +40,7 @@ const Header = () => {
   const headerRef = useRef(null);
   const tabletSizeMenuRef = useRef(null);
 
-  const { state } = useStateContext()
+  const { state } = useStateContext();
 
   const cartItemsNumber = state.cart.productId.length;
 
@@ -119,8 +119,10 @@ const Header = () => {
                 <RiUser3Line />
               </div>
               <div className="header__menu__item header__menu__right__item header__menu__right__item__bag">
-                <RiShoppingBag3Line />
-                {cartItemsNumber>0 && <span>{cartItemsNumber}</span>}
+                <Link to='/invoice'>
+                  <RiShoppingBag3Line />
+                  {cartItemsNumber > 0 && <span>{cartItemsNumber}</span>}
+                </Link>
               </div>
             </div>
           </div>
